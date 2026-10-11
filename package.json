@@ -1,0 +1,25 @@
+{
+  "name": "edge-tts-api2027",
+  "version": "2.0.0",
+  "description": "融合版 TTS API on Cloudflare Workers —— Azure / 火山引擎 / Edge 多后端 + OpenAI 兼容接口 + 内置 WebUI",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node test/smoke.mjs"
+  },
+  "keywords": [
+    "tts",
+    "text-to-speech",
+    "cloudflare-workers",
+    "edge-tts",
+    "azure-tts",
+    "volcengine",
+    "openai-compatible"
+  ],
+  "devDependencies": {
+    "wrangler": "^4"
+  },
+  "license": "MIT"
+}

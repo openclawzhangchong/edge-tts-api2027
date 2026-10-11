@@ -1,0 +1,38 @@
+name = "edge-tts-api2027"
+main = "src/index.js"
+compatibility_date = "2026-02-24"
+
+# ── KV 绑定（可选）─────────────────────────────────────────────────
+# 历史记录 / 分享链接 / 密码保护 依赖 KV。不绑定也能跑，只是这几个接口会
+# 返回 "KV storage not configured"。
+#
+# 创建：  npx wrangler kv namespace create TTS_HISTORY
+# 然后把返回的 id 填进来，并去掉行首的 #
+#
+# [[kv_namespaces]]
+# binding = "TTS_HISTORY"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# ── API 鉴权（可选）────────────────────────────────────────────────
+# 设置后 /v1/* 接口需要 Authorization: Bearer <API_KEY>。
+# 建议用 wrangler secret 而不是明文写在这里：
+#   npx wrangler secret put API_KEY
+#
+# [vars]
+# API_KEY = ""
+
+# ── 自定义域名（可选）─────────────────────────────────────────────
+# [[routes]]
+# pattern = "tts.example.com"
+# custom_domain = true
+
+[observability]
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+
+[placement]
+mode = "smart"
