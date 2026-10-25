@@ -22,6 +22,19 @@
 - **长文本自动分段**：超过 2000 字自动切块并行合成后拼接
 - **流式输出**：`stream: true` 时边合成边播放
 
+## 真实部署地址（2026-10-25 已部署）
+
+**<https://edge-tts-api2027.240384195.workers.dev>**
+
+- 部署账号：Cloudflare 账号 `15e81bc6f60df69a513d5c147d828215`（workers.dev 子域 `240384195`）
+- 当前版本 ID：`8214f065-6ce2-47bb-b566-e50e862432e1`
+- `/api/*` 无需鉴权可直接用；`/v1/*` 已设置 `API_KEY`（`wrangler secret`，需 `Authorization: Bearer <key>`）
+- 验证方式：`curl https://edge-tts-api2027.240384195.workers.dev/api/providers`
+- ⚠️ 国内直连 `*.workers.dev` 会被 DNS 污染 / SNI 阻断（实测 2026-10-25）。国内网络环境下
+  请走代理，或给 Worker 绑定自定义域名（账号里暂无域名 zone）；也可用客户端内置的
+  火山引擎直连后备（本项目 `src/providers/volcengine.js` 调的
+  `translate.volcengine.com` 公开接口国内可达，实测合成正常）。
+
 ## 快速开始
 
 ```bash
